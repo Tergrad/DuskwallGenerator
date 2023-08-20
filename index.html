@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TTRPG City Generator</title>
+    <!-- Link to your stylesheet (this will be created later) -->
+    <link rel="stylesheet" href="styles/main.css">
+</head>
+<body>
+
+     <!-- Sidebar for Quick Generation -->
+     <div id="sidebar">
+        <div id="toggleHandle"></div>  <!-- This is the clickable handle -->
+
+            <div id="quickGenContent" class="collapsed">
+                <!-- Generation Button for Quick Generation (and placeholder for random number) --> 
+                <button id="generateRandom">Generate Random Number</button>
+                <p id="randomResult"></p>
+            </div>
+
+     </div>
+        
+
+    </div>
+
+    <!-- Dropdown for genres -->
+    <select id="genreSelector">
+        <option value="WissenschaftlicheBucher">Wissenschaftliche Bücher</option>
+        <!-- ... other genres ... -->
+    </select>
+    <button onclick="showGeneratedBookName()" id="generateBtn" disabled>Generate Book Name</button>
+    <div id="generatedName"></div>
+    
+
+</div>
+
+
+    <!-- Main Area for District-Based Generation -->
+    <div id="main">
+
+         <!-- Placeholder for district buttons -->
+        <div id="districts">
+        
+        </div>
+            <!-- Placeholder where generated results will appear -->
+             <div id="generationResults">   
+        </div>
+
+    </div>
+
+
+    <!-- Link to your JavaScript file (this will be created later) -->
+    <script src="scripts/main.js"></script>
+</body>
+</html>

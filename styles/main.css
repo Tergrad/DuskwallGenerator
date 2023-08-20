@@ -1,0 +1,71 @@
+#sidebar {
+    width: 0;  /* set to 0 to hide the sidebar initially */
+    height: 100vh;
+    position: fixed;
+    left: 0; /* place the sidebar on the left */
+    top: 0;
+    background-color: #f4f4f4;
+    border-left: 2px solid #ddd;
+    padding: 0;
+    transition: width 0.3s;  /* smooth transition effect */
+    overflow: visible;  /* important change here */
+}
+
+#quickGenContent {
+    display: none; /* by default, the content is hidden */
+}
+
+#sidebar.expanded {
+    width: 250px;  /* set to desired width when expanded */
+    padding: 10px;
+}
+
+#sidebar.expanded #toggleHandle::before {
+    content: '<'; /* Arrow faces left when sidebar is expanded */
+}
+
+
+#sidebar.expanded #quickGenContent {
+    display: block; /* when sidebar is expanded, show the content */
+}
+
+#toggleHandle::before {
+    content: '>';
+    display: block;
+    font-size: 10px;
+    line-height: normal;
+    background-color: #f60707;
+    padding: 5px 5px;
+    border: 2px solid #ddd;
+    border-left: none;
+    width: 100%;
+    height: 100%;
+    text-align: center; /* Center the arrow */
+}
+
+#toggleHandle {
+    position: absolute;
+    top: 50%;
+    left: 100%;
+    transform: translateY(-50%);
+    width: 15px; /* Adjust this value to fit the size of your handle */
+    height: 15px; /* Adjust this value to fit the size of your handle */
+    cursor: pointer;
+    z-index: 1000;
+}
+
+
+
+.book-card {
+    border: 1px solid #ddd;
+    padding: 20px;
+    max-width: 300px;
+    text-align: center;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 20px auto;
+}
+
+.book-card:hover {
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
