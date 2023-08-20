@@ -5,9 +5,12 @@ function getRandomItem(array) {
 
 
 
-let bookData = {};
+// Generate Books Function
+
 
 // Fetch JSON data
+let bookData = {};
+
 fetch('Data/books.json')
     .then(response => response.json())
     .then(data => {
@@ -37,9 +40,6 @@ function initialize() {
         document.getElementById('generatedName').innerText = name;
     });
 }
-
-// ... (rest of your functions like getRandomItem and generateBookName)
-
 
 
 // Main function to generate book name
@@ -85,10 +85,7 @@ function generateBookName(genre) {
 }
 
 
-
-
-
-// Event listeners and other setup logic
+// Event listeners and other setup logic for books
 document.addEventListener("DOMContentLoaded", function() {
     // Populate genre dropdown
     const genreSelector = document.getElementById('genreSelector');
