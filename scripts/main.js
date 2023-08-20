@@ -47,20 +47,25 @@ document.getElementById('booksCard').addEventListener('click', function() {
 
 // Fetch the book data from the JSON file
 
-let bookData = {};
+let bookData;
 
-
-// Fetch the book data from the JSON file
 fetch('Data/books.json')
     .then(response => response.json())
     .then(data => {
         bookData = data;
-        document.getElementById("generateBtn").disabled = false; // Enable the button here
     })
-    .catch(error => {
-        console.error("Error fetching the book data:", error);
-    });
+    .catch(error => console.error('Error fetching the JSON data:', error));
 
+    function populateGenresDropdown() {
+        const genreSelector = document.getElementById('genreSelector');
+        
+        for (const genre in bookData) {
+            const option = document.createElement('option');
+            option.value = genre;
+            option.textContent = genre;
+            genreSelector.appendChild(option);
+        }
+    }
 
 
 function getRandomItem(array) {
@@ -68,35 +73,35 @@ function getRandomItem(array) {
 }
 
 function generateBookName(genre) {
-    if (!bookData) {
-        console.error("Book data not loaded yet");
+    if (!bookData || !bookData[genre]) {
+        console.error("Book data not loaded yet or Invalid Genre");
         return;
     }
 
     const genreData = bookData[genre];
-    if (!genreData) return "Invalid Genre";
-
     const template = getRandomItem(genreData.templates);
     let title = template;
 
     for (const placeholder in genreData.placeholders) {
         while (title.includes(`[${placeholder}]`)) {
             let replacement;
-            if (genre === "WissenschaftlicheBucher" && placeholder === "Adjektive") {
-                const discipline = getRandomItem(Object.keys(genreData.placeholders["Substantive"])); // Assuming disciplines are the keys
-                replacement = getRandomItem(genreData.placeholders["Substantive"][discipline]);
-                title = title.replace(`[Substantive]`, replacement);
-                replacement = getRandomItem(genreData.placeholders["Adjektive"][discipline] || genreData.placeholders["Adjektive"].default);
-            } else if (typeof genreData.placeholders[placeholder] === "object" && genreData.placeholders[placeholder].default) {
-                replacement = getRandomItem(genreData.placeholders[placeholder].default);
+
+            if (genre === "WissenschaftlicheBucher" && (placeholder === "Substantive" || placeholder === "Adjektive")) {
+                const discipline = getRandomItem(genreData.placeholders["Disziplin"]);
+                replacement = getRandomItem(genreData.placeholders[placeholder][discipline] || genreData.placeholders[placeholder].default);
             } else {
                 replacement = getRandomItem(genreData.placeholders[placeholder]);
             }
+
             title = title.replace(`[${placeholder}]`, replacement);
         }
     }
     return title;
 }
+
+<button onclick="showGeneratedBookName()" id="generateBtn">Generate Book Name</button>
+
+
 
 
 function showGeneratedBookName() {
@@ -104,5 +109,3 @@ function showGeneratedBookName() {
     const name = generateBookName(genre);
     document.getElementById('generatedName').innerText = name;
 }
-
-

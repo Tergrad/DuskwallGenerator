@@ -16,7 +16,7 @@
 
             <div id="quickGenContent" class="collapsed">
                 <!-- Generation Button for Quick Generation (and placeholder for random number) --> 
-                <button id="generateRandom">Generate Random Number</button>
+                <!--<button id="generateRandom">Generate Random Number</button> -->
                 <p id="randomResult"></p>
             </div>
 
@@ -28,9 +28,10 @@
     <!-- Dropdown for genres -->
     <select id="genreSelector">
         <option value="WissenschaftlicheBucher">Wissenschaftliche Bücher</option>
+        <option value="Journale">Journale</option>
         <!-- ... other genres ... -->
     </select>
-    <button onclick="showGeneratedBookName()" id="generateBtn" disabled>Generate Book Name</button>
+    <button onclick="showGeneratedBookName()" id="generateBtn">Generate Book Name</button>
     <div id="generatedName"></div>
     
 
@@ -52,6 +53,6 @@
 
 
     <!-- Link to your JavaScript file (this will be created later) -->
-    <script src="scripts/main.js"></script>
+    <script src="scripts/main.js" defer></script>
 </body>
 </html>
