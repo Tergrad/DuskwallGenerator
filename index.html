@@ -5,34 +5,27 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TTRPG City Generator</title>
-    <!-- Link to your stylesheet (this will be created later) -->
+    
+    <link rel="stylesheet" href="styles/landing.css">
     <link rel="stylesheet" href="styles/main.css">
+
+
+    <script src="scripts/animation.js" defer></script>
+    
 </head>
-<body>
+<body>     
 
-     <!-- Sidebar for Quick Generation -->
-     <div id="sidebar">
-        <div id="toggleHandle"></div>  <!-- This is the clickable handle -->
-
-            <div id="quickGenContent" class="collapsed">
-                <!-- Generation Button for Quick Generation (and placeholder for random number) --> 
-                <!--<button id="generateRandom">Generate Random Number</button> -->
-                <p id="randomResult"></p>
-            </div>
-
-     </div>
-        
+<div id="book-animation"></div>
 
     </div>
-
     <!-- Dropdown for genres -->
-    <select id="genreSelector">
-    </select>
-    <button id="generateBtn">Generate Book Name</button>
-    <div id="generatedName"></div>
+        <select id="genreSelector"></select>
+        <button id="generateBtn">Generate Book Name</button>
+
+        <div id="generatedName"></div>
     
 
-</div>
+    </div>
 
 
     <!-- Main Area for District-Based Generation -->

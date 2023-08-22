@@ -1,0 +1,26 @@
+body {
+    background-image: url('/Assets/Table.svg');
+    background-position: center center; /* Centers the image both horizontally and vertically */
+    background-repeat: no-repeat; /* Prevents the image from repeating */
+    background-size: cover; /* Scales the image to cover the entire viewport */
+    margin: 0; /* Removes default margin */
+    padding: 0; /* Removes default padding */
+    min-height: 100vh; /* Sets a minimum height that fits the screen */
+}
+
+
+
+
+#book-animation {
+    width: 80%; /* You can adjust this based on your preference */
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    overflow: hidden;
+}
+
+
+#book-animation img {
+    width: 100%;
+}
